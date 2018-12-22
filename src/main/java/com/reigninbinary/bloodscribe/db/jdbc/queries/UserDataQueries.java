@@ -1,4 +1,4 @@
-package com.reigninbinary.bloodscribe.db.queries;
+package com.reigninbinary.bloodscribe.db.jdbc.queries;
 
 import java.util.ArrayList;
 import java.util.List;

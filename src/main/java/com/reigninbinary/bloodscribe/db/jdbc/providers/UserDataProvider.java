@@ -8,7 +8,7 @@ import com.reigninbinary.bloodscribe.db.dto.User;
 import com.reigninbinary.bloodscribe.db.dto.UserIdentityType;
 import com.reigninbinary.bloodscribe.db.dto.UserProfileItem;
 import com.reigninbinary.bloodscribe.db.dto.UserProfileItemType;
-import com.reigninbinary.bloodscribe.db.queries.UserDataQueries;
+import com.reigninbinary.bloodscribe.db.jdbc.queries.UserDataQueries;
 import com.reigninbinary.bloodscribe.providers.UserProvider;
 
 public class UserDataProvider implements UserProvider {
