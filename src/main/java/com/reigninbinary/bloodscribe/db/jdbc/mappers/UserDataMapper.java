@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.reigninbinary.bloodscribe.db.dto.User;
 import com.reigninbinary.bloodscribe.db.tables.UserTable;
-import com.reigninbinary.core.jdbc.mappers.ResultSetMapper;
+import com.reigninbinary.core.db.jdbc.mappers.ResultSetMapper;
 
 
 public class UserDataMapper implements ResultSetMapper<User> {

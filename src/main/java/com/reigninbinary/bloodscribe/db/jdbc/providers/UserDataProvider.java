@@ -2,121 +2,126 @@ package com.reigninbinary.bloodscribe.db.jdbc.providers;
 
 import java.util.List;
 
-import com.reigninbinary.core.jdbc.CoreJdbcException;
-
+import com.reigninbinary.bloodscribe.BloodscribeException;
 import com.reigninbinary.bloodscribe.db.dto.User;
 import com.reigninbinary.bloodscribe.db.dto.UserIdentityType;
 import com.reigninbinary.bloodscribe.db.dto.UserProfileItem;
 import com.reigninbinary.bloodscribe.db.dto.UserProfileItemType;
 import com.reigninbinary.bloodscribe.db.jdbc.queries.UserDataQueries;
 import com.reigninbinary.bloodscribe.providers.UserProvider;
+import com.reigninbinary.core.db.CoreDatabaseException;
 
 public class UserDataProvider implements UserProvider {
 
-	public UserDataProvider() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
-	public User getUserById(int idUser) {
+	public List<User> getUsers() throws BloodscribeException {
+
+		try {
+			return UserDataQueries.findAllUsers();
+		} 
+		catch (CoreDatabaseException e) {			
+			
+			throw new BloodscribeException(e);
+		}
+	}
+	@Override
+	public User getUserById(int idUser) throws BloodscribeException {
 		
 		try {
-			return UserDataQueries.findByUserId(idUser);
+			return UserDataQueries.findUserByUserId(idUser);
 		} 
-		catch (CoreJdbcException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (CoreDatabaseException e) {
+			
+			throw new BloodscribeException(e);
 		}
-		return null;
 	}
 
 	@Override
-	public User getUserByIdentityId(String idIdentity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public User getUserByEmailAddress(String emailAddress) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<UserProfileItem> getUserProfileItems(int idUser) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<User> getUsers() {
-
+	public User getUserByIdentityId(String idIdentity) throws BloodscribeException {
+		
 		try {
-			return UserDataQueries.findAll();
+			return UserDataQueries.findUserByIdentityId(idIdentity);
 		} 
-		catch (CoreJdbcException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (CoreDatabaseException e) {
+			
+			throw new BloodscribeException(e);
 		}
-		return null;
 	}
 
 	@Override
-	public List<UserIdentityType> getUserIdentityTypes() {
+	public User getUserByEmailAddress(String emailAddress) throws BloodscribeException {
+		
+		try {
+			return UserDataQueries.findUserByEmailAddress(emailAddress);
+		} 
+		catch (CoreDatabaseException e) {
+			
+			throw new BloodscribeException(e);
+		}
+	}
+
+	@Override
+	public List<UserProfileItem> getUserProfileItems(int idUser) throws BloodscribeException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<UserProfileItemType> getUserProfileItemTypes() {
+	public List<UserIdentityType> getUserIdentityTypes() throws BloodscribeException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void saveUser(User user) {
+	public List<UserProfileItemType> getUserProfileItemTypes() throws BloodscribeException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveUser(User user) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void saveUserProfileItem(UserProfileItem profileItem) {
+	public void saveUserProfileItem(UserProfileItem profileItem) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void saveUserProfileItemType(UserProfileItemType profileItemType) {
+	public void saveUserProfileItemType(UserProfileItemType profileItemType) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void saveUserIdentityType(UserIdentityType identityType) {
+	public void saveUserIdentityType(UserIdentityType identityType) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteUser(User user) {
+	public void deleteUser(User user) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteUserProfileItem(UserProfileItem profileItem) {
+	public void deleteUserProfileItem(UserProfileItem profileItem) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteUserProfileItemType(UserProfileItemType profileItemType) {
+	public void deleteUserProfileItemType(UserProfileItemType profileItemType) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteUserIdentityType(UserIdentityType identityType) {
+	public void deleteUserIdentityType(UserIdentityType identityType) throws BloodscribeException {
 		// TODO Auto-generated method stub
 
 	}

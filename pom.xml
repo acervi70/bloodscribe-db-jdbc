@@ -46,7 +46,7 @@
 	</dependency>
 	<dependency>
 		<groupId>com.reigninbinary</groupId>
-		<artifactId>rib-core-jdbc</artifactId>
+		<artifactId>rib-jdbc-pool</artifactId>
 		<version>1.0.0</version>
 	</dependency>
 	<dependency>
